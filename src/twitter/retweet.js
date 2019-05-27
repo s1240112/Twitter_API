@@ -18,7 +18,13 @@ var client = new twitter({
 postReTweet();
 
 function postReTweet() {
-    var tweetId = '1132995277315563520';
+
+    /*
+       tweetIdを指定することで特定のツイートを
+       リツイートすることができる。
+     */
+    var tweetId = 'Input tweetId';
+
     client.post('statuses/retweet/' + tweetId, function(error, tweet, response) {
         if (!error) {
             /*
