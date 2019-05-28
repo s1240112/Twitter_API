@@ -30,7 +30,9 @@ function postTweet() {
                 ターミナル上にコンソールの表示
                 実際に投稿された内容やそれに対するパラメータなどが表示される。
              */
-            console.log(tweet);
+            console.log(tweet.created_at);
+            console.log(tweet.text);
+            console.log('\n');
         }
         else {
             console.log(error);
