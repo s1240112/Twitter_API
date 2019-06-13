@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=title %></title>
+</head>
+<body>
+
+<h1><%=title %></h1>
+<p><%-content %> (<%-hit_count%>件/100件)</p>
+
+<ul>
+    <% for(var i=0; i < tweet.length; i++) { %>
+        <li>
+            <%= tweet[i] %>
+        </li>
+    <% } %>
+</ul>
+
+<form method="post" action="/">
+    <input type="submit" value="Homeに戻る" />
+</form>
+
+</body>
+</html>
