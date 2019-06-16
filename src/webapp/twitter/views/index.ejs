@@ -9,12 +9,20 @@
 <h1><%=title %></h1>
 <p><%-content %></p>
 
-<form method="post" action="/show_tweet">
+<p>キーワードを入力してツイートの検索しよう！</p>
+<form method="post" action="/search_tweet">
     <input type="text" name="keyword" autocomplete="off" />
     <input type="submit" value="検索" />
 </form>
 
-<form method="post" action="/upload_tweet">
+<p>スクリーンネームを入力して対象ユーザーのお気に入りツイートを取得しよう！</p>
+<form method="post" action="/favorites_tweet">
+    <input type="text" name="target" autocomplete="off" />
+    <input type="submit" value="取得" />
+</form>
+
+<p>テキストを入力してツイートを投稿しよう！</p>
+<form method="post" action="/post_tweet">
     <textarea name="tweet_area" cols="20" rows="7"></textarea>
     <input type="submit" value="つぶやく" />
 </form>

@@ -8,7 +8,7 @@ var ejs = require('ejs');
 app.engine('ejs',ejs.renderFile);
 
 /*
-    twitter-apiの初期化
+    twitter-api api-keyの初期化
  */
 var twitter = require('twitter');
 var client = new twitter({
@@ -19,7 +19,7 @@ var client = new twitter({
 });
 
 /*
-    ホーム画面に遷移する。
+    ホーム画面に移動する。
  */
 app.all('/', function(req, res){
     res.render('index.ejs',
@@ -30,7 +30,7 @@ app.all('/', function(req, res){
 /*
     特定のキーワードを入力し、Twitterの投稿を表示する。
  */
-app.post('/show_tweet', function(req,res){
+app.post('/search_tweet', function(req,res){
 
     /*
         パラメーターの設定
@@ -38,7 +38,8 @@ app.post('/show_tweet', function(req,res){
     var params = {
         q: req.body.keyword,
         lang: 'ja',
-        count: 100
+        count: 100,
+        include_entities: true
     };
 
     var tweet = new Array();
@@ -57,8 +58,8 @@ app.post('/show_tweet', function(req,res){
             tweet[0] = error;
         }
 
-        res.render('view_tweet.ejs',
-            {   title : 'View_Tweet' ,
+        res.render('search_tweet.ejs',
+            {   title : 'Twitter-API search/tweetsを実行した結果' ,
                 content: req.body.keyword + 'の検索結果！',
                 tweet: tweet,
                 hit_count : hit_count
@@ -66,10 +67,51 @@ app.post('/show_tweet', function(req,res){
     });
 })
 
+
+/*
+    ユーザーIDかスクリーンネームを入力してお気に入りのツイートを取得する。
+ */
+app.post('/favorites_tweet', function(req,res){
+
+    /*
+        パラメーターの設定（ユーザーIDが入力された場合）
+    */
+    var params = {
+        screen_name: req.body.target,
+        count: 20,
+        include_entities: true
+    };
+
+    var tweet = new Array();
+    var hit_count = 0;
+
+    client.get('favorites/list', params, function (error, tweets, response) {
+        if (!error) {
+            for (var i = 0; i < tweets.length; i++) {
+                console.log(tweets[i].text + '\n');
+                tweet[i] = tweets[i].text;
+                hit_count++;
+            }
+        }
+        else{
+            console.log(error);
+            tweet[0] = error;
+        }
+
+        res.render('favorites_tweet.ejs',
+            {   title : 'Twitter-API favorites/listを実行した結果' ,
+                content: req.body.target + 'の検索結果！',
+                tweet: tweet,
+                hit_count : hit_count
+            })
+    });
+})
+
+
 /*
     文章を入力し、Twitterへ投稿する。
  */
-app.post('/upload_tweet', function(req,res){
+app.post('/post_tweet', function(req,res){
 
     /*
         パラメーターの設定
@@ -87,8 +129,8 @@ app.post('/upload_tweet', function(req,res){
             console.log(error);
         }
 
-        res.render('upload_tweet.ejs',
-            {   title : 'Upload_Tweet' ,
+        res.render('post_tweet.ejs',
+            {   title : 'Twitter-API statuses/updateを実行した結果' ,
                 content: 'Twitterに以下の文章がアップロードされました。',
                 tweet: tweet,
                 length: tweet.text.length
