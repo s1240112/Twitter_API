@@ -42,7 +42,7 @@ var pokemon = [
 
 var min = 0;
 var max = 150;
-var tmp = 1;
+var tmp = -1;
 
 setInterval(function(){
 
@@ -50,10 +50,17 @@ setInterval(function(){
     if(number === tmp) {
         if (number === min) number++;
         else if (number === max) number--;
-        else number++;
+        else{
+            if( (Math.floor( Math.random() * 2 )  ) % 2 === 0 ){
+                number++;
+            }
+            else number--;
+        }
     }
+
     postTweet(pokemon[number], number);
     tmp = number;
+
 },10000);
 
 function postTweet(pokemon, number) {

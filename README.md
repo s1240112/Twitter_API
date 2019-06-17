@@ -16,6 +16,13 @@ Mac -> Option + Return
 [Windows版 & Mac版](https://qiita.com/kinmojr/items/058146a537b8e6498fe1)  
 [Windows版](http://xyk.hatenablog.com/entry/2013/12/18/093256)
 
+### Twitter bot を作成する際の注意点
+Twitterでは同じつぶやきを次につぶやくには、間に別の投稿を10個挟まないと、同じつぶやきができないそうです。
+Twitterのbotをプログラムを用いて利用したい場合、データを大量に用意して順番につぶやくように設定する方法があります。
+もしくは乱数を使ってもできますが、同じ内容を連続でつぶやいていないかチェックしないといけないので、
+乱数による処理が分からない場合、順番につぶやくようにすることをお勧めします。  
+※プログラムを使わなくても良いと考えている場合、botを提供するサービスがありますので、そちらを利用してください。
+
 ### Reference
 1. [IntelliJ IDEAでNode.jsプラグインをインストールする話](https://www.1ft-seabass.jp/memo/2013/11/16/intellij-idea-node-js-plugin-install/)
 2. [Node.js入門 - とほほのWWW入門](http://www.tohoho-web.com/ex/nodejs.html)
