@@ -12,8 +12,8 @@ app.engine('ejs',ejs.renderFile);
  */
 var twitter = require('twitter');
 var client = new twitter({
-    consumer_key:        'Input Your Customer Key',
-    consumer_secret:     'Input Your Customer Secret Key',
+    consumer_key:        'Input Your Consumer Key',
+    consumer_secret:     'Input Your Consumer Secret Key',
     access_token_key:    'Input Your Access Token Key',
     access_token_secret: 'Input Your Access Token Secret Key'
 });

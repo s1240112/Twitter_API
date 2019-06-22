@@ -1,3 +1,7 @@
+/*
+    csvファイルを読み込んでコンソール上に表示する
+ */
+
 var fs = require('fs');
 var parse = require('csv').parse;
 var iconv = require('iconv-lite');
