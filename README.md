@@ -16,6 +16,12 @@ Mac -> Option + Return
 [Windows版 & Mac版](https://qiita.com/kinmojr/items/058146a537b8e6498fe1)  
 [Windows版](http://xyk.hatenablog.com/entry/2013/12/18/093256)
 
+### IntellijでEJSを利用する方法
+1. IntellijにEJSのプラグインを入れる。(File -> Settings -> Plugin)
+2. File -> Settings -> Editor -> File typesを選択。
+3. EJSを選択し、拡張子を追加する。(記入方法： *.ejs)
+(※プラグインについて、EJS 以外に NodeJS 及び NPM script runner も入れる必要があります。)
+
 ### Twitter bot を作成する際の注意点
 Twitterでは同じつぶやきを次につぶやくには、間に別の投稿を10個挟まないと、同じつぶやきができないそうです。
 Twitterのbotをプログラムを用いて利用したい場合、データを大量に用意して順番につぶやくように設定する方法があります。
