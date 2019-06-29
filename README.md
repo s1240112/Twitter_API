@@ -19,7 +19,7 @@ Mac -> Option + Return
 ### IntellijでEJSを利用する方法
 1. IntellijにEJSのプラグインを入れる。(File -> Settings -> Plugin)
 2. File -> Settings -> Editor -> File typesを選択。
-3. EJSを選択し、拡張子を追加する。(記入方法： *.ejs)
+3. EJSを選択し、拡張子を追加する。(記入方法： *.ejs)  
 (※プラグインについて、EJS 以外に NodeJS 及び NPM script runner も入れる必要があります。)
 
 ### Twitter bot を作成する際の注意点
