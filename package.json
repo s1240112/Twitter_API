@@ -1,0 +1,12 @@
+{
+  "name": "Twitter_API",
+  "version": "1.0.0",
+  "dependencies": {
+    "csv": "^5.1.1",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "jsdom": "^15.1.1",
+    "twitter": "latest",
+    "iconv-lite": "latest"
+  }
+}
