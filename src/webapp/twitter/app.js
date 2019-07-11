@@ -48,6 +48,7 @@ app.post('/search_tweet', function(req,res){
     client.get('search/tweets', params, function (error, tweets, response) {
         if (!error) {
             for (var i = 0; i < tweets.statuses.length; i++) {
+                console.log(tweets.statuses[i].created_at);
                 console.log(tweets.statuses[i].text + '\n');
                 tweet[i] = tweets.statuses[i].text;
                 hit_count++;
